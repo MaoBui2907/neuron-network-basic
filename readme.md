@@ -15,6 +15,7 @@ Tạo neuron network cơ bản
 - Chọn activation function (là hàm phi tuyến xử lý input để cho ra output thuộc khoảng giá trị (0,1)) cho hidden layer. các loại activation function thường dùng là (tanh, sigmoid, ReLUs). Ở đây dùng sigmoid function.
 
 - Đồ thị các loại activation function:
+
 ![alt activation-function](https://theclevermachine.files.wordpress.com/2014/09/nnet-error-functions2.png?w=700&h=352)
 
 - Sử dụng thêm hàm softmax để xử lý giá trị ra theo kiểu xác suất
@@ -36,8 +37,17 @@ Tạo neuron network cơ bản
 - Phương pháp để tối ưu cost function là gradient descent.
 
 - Sigmoid function:
+
 ![alt sigmoid-function](https://s0.wp.com/latex.php?latex=%5CLarge%7B%5Cbegin%7Barray%7D%7Brcl%7D+g_%7B%5Ctext%7Blogistic%7D%7D%28z%29+%3D+%5Cfrac%7B1%7D%7B1+%2B+e%5E%7B-z%7D%7D%5Cend%7Barray%7D%7D&bg=ffffff&fg=4e4e4e&s=0)
 
-- Đạo hàm của hàm sigmoid function:
+- Đạo hàm của sigmoid function:
+
 ![alt graidient of sigmoid function](https://s0.wp.com/latex.php?latex=%5CLarge%7B%5Cbegin%7Barray%7D%7Brcl%7D+g%27_%7B%5Ctext%7Blogistic%7D%7D%28z%29+%26%3D%26+%5Cfrac%7B%5Cpartial%7D%7B%5Cpartial+z%7D+%5Cleft+%28+%5Cfrac%7B1%7D%7B1+%2B+e%5E%7B-z%7D%7D%5Cright+%29+%5C%5C++%26%3D%26+%5Cfrac%7Be%5E%7B-z%7D%7D%7B%281+%2B+e%5E%7B-z%7D%29%5E2%7D+%5Ctext%7B%28chain+rule%29%7D+%5C%5C++%26%3D%26+%5Cfrac%7B1+%2B+e%5E%7B-z%7D+-+1%7D%7B%281+%2B+e%5E%7B-z%7D%29%5E2%7D+%5C%5C++%26%3D%26+%5Cfrac%7B1+%2B+e%5E%7B-z%7D%7D%7B%281+%2B+e%5E%7B-z%7D%29%5E2%7D+-+%5Cleft+%28+%5Cfrac%7B1%7D%7B1%2Be%5E%7B-z%7D%7D+%5Cright+%29%5E2+%5C%5C++%26%3D%26+%5Cfrac%7B1%7D%7B%281+%2B+e%5E%7B-z%7D%29%7D+-+%5Cleft+%28+%5Cfrac%7B1%7D%7B1%2Be%5E%7B-z%7D%7D+%5Cright+%29%5E2+%5C%5C++%26%3D%26+g_%7B%5Ctext%7Blogistic%7D%7D%28z%29-+g_%7B%5Ctext%7Blogistic%7D%7D%28z%29%5E2+%5C%5C++%26%3D%26+g_%7B%5Ctext%7Blogistic%7D%7D%28z%29%281+-+g_%7B%5Ctext%7Blogistic%7D%7D%28z%29%29+%5Cend%7Barray%7D%7D&bg=ffffff&fg=4e4e4e&s=0)
 
+- Để xử lý đạo hàm trong NN ta dùng thuật toán backpropagation:
+    + Tính các đầu ra từ đầu đến cuối của mạng NN.
+    \begin{aligned} &\mathbf{z}^{(l)}=\mathbf{W}^{(l)}\cdot\mathbf{a}^{(l-1)} \cr &\mathbf{a}^{(l)}=f(\mathbf{z}^{(l)}) \end{aligned} 
+​	  
+    + Tính đạo hàm theo z ở tầng ra.
+    + Tính các đạo hàm ngược lại
+    + Rút ra đạo hàm.
