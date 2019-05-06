@@ -46,8 +46,16 @@ Tạo neuron network cơ bản
 
 - Để xử lý đạo hàm trong NN ta dùng thuật toán backpropagation:
     + Tính các đầu ra từ đầu đến cuối của mạng NN.
-    \begin{aligned} &\mathbf{z}^{(l)}=\mathbf{W}^{(l)}\cdot\mathbf{a}^{(l-1)} \cr &\mathbf{a}^{(l)}=f(\mathbf{z}^{(l)}) \end{aligned} 
+
+    ![alt text](https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20%26%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%3D%5Cmathbf%7BW%7D%5E%7B%28l%29%7D%5Ccdot%5Cmathbf%7Ba%7D%5E%7B%28l-1%29%7D%20%5Ccr%20%26%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%3Df%28%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%29%20%5Cend%7Baligned%7D)
 ​	  
     + Tính đạo hàm theo z ở tầng ra.
+
+    ![alt text](https://latex.codecogs.com/gif.latex?%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28L%29%7D%7D%7D%20%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28L%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28L%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28L%29%7D%7D%7D)
+
     + Tính các đạo hàm ngược lại
+
+    ![alt text](https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%20%26%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l&plus;1%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l&plus;1%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%20%5Ccr%20%26%20%3D%20%5Cbigg%28%5Cbig%28%5Cmathbf%7BW%7D%5E%7B%28l&plus;1%29%7D%5Cbig%29%5E%7B%5Cintercal%7D%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l&plus;1%29%7D%7D%7D%5Cbigg%29%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%20%5Cend%7Baligned%7D)
+
     + Rút ra đạo hàm.
+    ![alt text](https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7BW%7D%5E%7B%28l%29%7D%7D%7D%20%26%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7BW%7D%5E%7B%28l%29%7D%7D%7D%20%5Ccr%20%26%20%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%5Cbig%28%5Cmathbf%7Ba%7D%5E%7B%28l-1%29%7D%5Cbig%29%5E%7B%5Cintercal%7D%20%5Cend%7Baligned%7D)
