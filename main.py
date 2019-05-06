@@ -2,13 +2,8 @@ import numpy as np
 from sklearn import *
 import matplotlib.pyplot as plt
 
-np.random.seed(0)
-X, y = datasets.make_moons(200, noise=0.20)
-plt.scatter(X[:,0], X[:,1], s=40, c=y, cmap=plt.cm.Spectral)
-
-clf = linear_model.LogisticRegressionCV()
-clf.fit(X, y)
-
+# Hàm vẽ biểu đồ classification
+# src: https://gist.github.com/dennybritz/ff8e7c2954dd47a4ce5f
 def plot_decision_boundary(pred_func):
     # Set min and max values and give it some padding
     x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
@@ -23,9 +18,19 @@ def plot_decision_boundary(pred_func):
     plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral)
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Spectral)
 
+# Tạo dữ liệu 
+np.random.seed(0)
+X, y = datasets.make_moons(200, noise=0.20)
+
+print(y)
+
+# Biểu đồ điểm dữ liệu
+plt.scatter(X[:,0], X[:,1], s=40, c=y, cmap=plt.cm.Spectral)
+
+# Vẽ thử với logistic regression
+clf = linear_model.LogisticRegressionCV()
+clf.fit(X, y)
 plot_decision_boundary(lambda x: clf.predict(x))
-
-
-
 plt.title("Logistic Regression&quot")
+
 plt.show()
