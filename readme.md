@@ -23,7 +23,7 @@ Tạo neuron network cơ bản
 ++ Phương pháp:
 - Phương pháp sử dụng ở đây là forward propagation (lan truyền tiến)
 
-![alt forward propagation](http://s0.wp.com/latex.php?latex=%5Cbegin%7Baligned%7D++z_1+%26+%3D+xW_1+%2B+b_1+%5C%5C++a_1+%26+%3D+%5Ctanh%28z_1%29+%5C%5C++z_2+%26+%3D+a_1W_2+%2B+b_2+%5C%5C++a_2+%26+%3D+%5Chat%7By%7D+%3D+%5Cmathrm%7Bsoftmax%7D%28z_2%29++%5Cend%7Baligned%7D&bg=ffffff&fg=000&s=0)
+![alt forward propagation](https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20z_1%20%26%20%3D%20xW_1%20&plus;%20b_1%20%5C%5C%20a_1%20%26%20%7B%5Cdisplaystyle%20%3D%7B%5Cfrac%20%7B1%7D%7B1&plus;e%5E%7B-x%7D%7D%7D%7D%20%5C%5C%20z_2%20%26%20%3D%20a_1W_2%20&plus;%20b_2%20%5C%5C%20a_2%20%26%20%3D%20%5Chat%7By%7D%20%3D%20%5Cmathrm%7Bsoftmax%7D%28z_2%29%20%5Cend%7Baligned%7D)
 
 - zi là output của layer i, ai là output sau khi được xử lý với activation function
 - wi (trọng số), bi (độ lệch bias) là các tham số của mạng trong quá trình train
