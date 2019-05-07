@@ -1,5 +1,9 @@
 Tạo neuron network cơ bản
 
+++ Nguồn tham khảo:
+
+http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
+
 ++ Dữ liệu
 - Dữ liệu X đầu vào là cặp 2 giá trị (tọa độ x và tọa độ y)
 - Dữ liệu đầu ra là nhãn cho cặp dữ liệu là 0 hoặc 1 (red or blue)
