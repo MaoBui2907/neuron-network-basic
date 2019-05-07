@@ -58,4 +58,14 @@ Tạo neuron network cơ bản
     ![alt text](https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%20%26%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l&plus;1%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l&plus;1%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%20%5Ccr%20%26%20%3D%20%5Cbigg%28%5Cbig%28%5Cmathbf%7BW%7D%5E%7B%28l&plus;1%29%7D%5Cbig%29%5E%7B%5Cintercal%7D%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l&plus;1%29%7D%7D%7D%5Cbigg%29%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Ba%7D%5E%7B%28l%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%20%5Cend%7Baligned%7D)
 
     + Rút ra đạo hàm.
+
     ![alt text](https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7BW%7D%5E%7B%28l%29%7D%7D%7D%20%26%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%5Cdfrac%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%7B%5Cpartial%7B%5Cmathbf%7BW%7D%5E%7B%28l%29%7D%7D%7D%20%5Ccr%20%26%20%3D%20%5Cdfrac%7B%5Cpartial%7BJ%7D%7D%7B%5Cpartial%7B%5Cmathbf%7Bz%7D%5E%7B%28l%29%7D%7D%7D%5Cbig%28%5Cmathbf%7Ba%7D%5E%7B%28l-1%29%7D%5Cbig%29%5E%7B%5Cintercal%7D%20%5Cend%7Baligned%7D)
+
+- Tối ưu W và b:
+    + Tối ưu W: 
+
+    *Đạo hàm của W được tính bằng cách nhân delta đầu ra với đầu vào*
+
+    + Tối ưu b:
+
+    *Đạo hàm của b tính bằng tổng của delta theo chiều dọc*
