@@ -2,6 +2,7 @@ import numpy as np
 from sklearn import *
 import matplotlib.pyplot as plt
 
+
 # Hàm vẽ biểu đồ classification
 # src: https://gist.github.com/dennybritz/ff8e7c2954dd47a4ce5f
 
@@ -51,15 +52,14 @@ def caculate_cost(model, X, y):
     # từ a2(nx2) và y(nx1) thực tế ta lấy ra được giá trị output cần thiết (nx1) để tối ưu
     # nếu y = 0 thì chọn output 0 còn y = 1 thì chọn output 1
     a2_fit = a2[range(len(X)), y]
-
     # cost function:
-    # L = -ln(h(x))*(1-y) + -y*ln(h(x))
-    cost = -np.log(a2_fit) * (1 - y) - np.log(a2_fit) * y
+    # L = -ln(1-h(x))*(1-y) - y*ln(h(x))
+    cost = - np.log(1 - a2_fit) * (1 - y) - np.log(a2_fit) * y
 
     return 1./len(y) * np.sum(cost)
 
 
-def build_model(X, y, learning_rate=0.005, hidden_node_number=50, loop_number=20000):
+def build_model(X, y, learning_rate=0.001, hidden_node_number=5, loop_number=2000):
     """return model"""
 
     # initial model
@@ -107,8 +107,8 @@ def build_model(X, y, learning_rate=0.005, hidden_node_number=50, loop_number=20
         model = {'W1': W1, 'W2': W2, 'b1': b1, 'b2': b2}
         print(caculate_cost(model, X, y))
 
-    return model
 
+    return model
 
 def predict(model, X):
     """Trả về bộ nhãn dự đoán (0 hoặc 1) với bộ dữ liệu X đầu vào"""
@@ -129,5 +129,4 @@ model = build_model(X, y)
 
 # Vẽ biểu đồ với model
 plot_decision_boundary(lambda X: predict(model, X)['label'])
-
 plt.show()
